@@ -8,7 +8,7 @@ import { CheckoutPage } from '../pages/CheckoutPage';
 
 test.describe('SauceDemo Regression Suite', () => {
 
-  test('1. Valid user can login', async ({ page }) => {
+  test('1. Valid standard user can login successfully', async ({ page }) => {
 
     const loginPage = new LoginPage(page);
     const inventoryPage = new InventoryPage(page);
