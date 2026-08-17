@@ -24,7 +24,7 @@ test.describe('SauceDemo Regression Suite', () => {
 
     await expect(
       inventoryPage.pageTitle
-    ).toHaveText('Wrong Products');
+    ).toHaveText('Products');
 
   });
 
