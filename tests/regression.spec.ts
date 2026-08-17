@@ -137,5 +137,32 @@ test.describe('SauceDemo Regression Suite', () => {
     ).toHaveText('Thank you for your order!');
 
   });
+  test('6. User can remove product from cart', async ({ page }) => {
+
+    const loginPage = new LoginPage(page);
+    const inventoryPage = new InventoryPage(page);
+
+    await loginPage.goto();
+
+    await loginPage.login(
+        'standard_user',
+        'secret_sauce'
+    );
+
+    await inventoryPage.addBackpackToCart();
+
+    await expect(
+        inventoryPage.cartBadge
+    ).toHaveText('1');
+
+    await page
+        .locator('#remove-sauce-labs-backpack')
+        .click();
+
+    await expect(
+        inventoryPage.cartBadge
+    ).not.toBeVisible();
+
+    });
 
 });
